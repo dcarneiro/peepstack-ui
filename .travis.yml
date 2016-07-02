@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: l5Y+9g17n40AMih121q/uvz6+tkHC6K+oR4auav6Z9tcV9F0hsm+yulgArAFXwgaC9cEVU24abZa75MTFWtII5QAPDXw9XvcyMmtMV1xq3ZIz176plP+gqe7oXL8wPlFIr8fTMt73mSyRz5gz8sRgefkpbh0HTbIRyB5dWm6Pyz8TAnXMcXKl+U+dnQ42pNxTA3+BtBLZLuEuJ+bUeV4rp/DTsNU0sfVOKzdVbTqvb2xgBR7P7VgGe31867V4mfFnRI5OKdo2vCu9meulJD+ke6g0KClrMDhMWdmcj8d+I/DoExWoaHAyQFIVpTSRaLFeTxHNOwEyUKb14jhAPg8g6mRy15CrpyvQUZA/ezqPkJpxeLP4vILnHSKTJEfPlUYcRNxGKX3IuIxgtbH5uaqcSiQxAEH6gApDUcHtAGOgy2ECrWCOoBUimdzF8qVEDlAJsRdcWmHXr+omfX32r7nJ3zXmHAmH9TQMkGFGi1I0lHAom3vlxfUL5Hc7A19Kr+yskHVEtJ+eXceeS/1BVwyn/3aDFuyaatkMLaGolNGOi+doX+7PWZi35n7r1cUEaJSeLlgvoPmwzRF+fA99Dyxnqjz5z5tUi/IprGDyrOSWaZcYO7EmB2MPNc8HYVUag3JBt79LoBUs+kO/cJyru2u1lmygteISSuFUK87nbOQBrk=
+  app: vast-headland-48897
+  on:
+    repo: dcarneiro/peepstack-ui
